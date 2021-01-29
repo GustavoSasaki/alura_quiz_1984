@@ -1,8 +1,7 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import db from '../style_db.json'
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import db from '../style_db.json';
 
-
-const theme = db.theme;
+const { theme } = db;
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -28,8 +27,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
   }
-`
-
+`;
 
 export default function App({ Component, pageProps }) {
   return (
@@ -39,5 +37,5 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </ThemeProvider>
     </>
-  )
+  );
 }

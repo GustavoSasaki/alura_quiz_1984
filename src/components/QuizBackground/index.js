@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 const QuizBackground = styled.div`
