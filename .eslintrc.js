@@ -20,5 +20,6 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-one-expression-per-line': 'single-child',
   },
 };

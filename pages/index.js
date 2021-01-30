@@ -9,8 +9,9 @@ import Widget from '../src/components/Widget';
 import QuizBackground from '../src/components/QuizBackground';
 // eslint-disable-next-line import/no-named-as-default
 import QuizContainer from '../src/components/QuizContainer';
+import Input from '../src/components/Input';
 import db from '../style_db.json';
-import { route } from 'next/dist/next-server/server/router';
+import Button from '../src/components/Button';
 
 export default function Home() {
   const router = useRouter();
@@ -18,10 +19,9 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <h1>
-          {db.title}
-        </h1>
+        <title>{db.title}</title>
       </Head>
+
       <QuizContainer>
         <Widget>
           <Widget.Header>
@@ -29,26 +29,22 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
-            <h1>{db.title}</h1>
+
+            <form onSubmit={(event) => {
+              event.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            }}
+            >
+              <Input
+                onChange={(event) => { setName(event.target.value); }}
+                placeholder="Nome do cidadão"
+              />
+
+              <Button type="submit" disabled={name.length === 0}>
+                {`Jogar ${name}`}
+              </Button>
+            </form>
           </Widget.Content>
-
-          <form onSubmit={function (event) {
-            event.preventDefault();
-            router.push(`/quiz?name=${event.target.name}`);
-          }}
-          >
-            <input
-              onChange={function (event) {
-                setName(event.target.value);
-              }}
-              placeholder="Nome do cidadão"
-            />
-
-            <button type="submit" disabled={name.length === 0}>
-              Jogar 
-              {name}
-            </button>
-          </form>
         </Widget>
       </QuizContainer>
 
