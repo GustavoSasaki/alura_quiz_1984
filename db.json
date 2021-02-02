@@ -1,40 +1,94 @@
 {
-    "bg": "https://i.pinimg.com/originals/b6/18/4a/b6184a1289bbd01c2cb93dd70610d6b6.jpg",
-    "title": "Quiz - Conhecimento geral",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "bg": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9ff51dd3-1d2b-4bad-8985-590e637a01f5/dbgpcg9-e9e3836d-ab47-4420-a84c-4f3bf5f40b2e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOWZmNTFkZDMtMWQyYi00YmFkLTg5ODUtNTkwZTYzN2EwMWY1XC9kYmdwY2c5LWU5ZTM4MzZkLWFiNDctNDQyMC1hODRjLTRmM2JmNWY0MGIyZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.BGJHcknuowvzirarIGX00lK-sXpBxmYhScmwTied28g",
+    "bg2": "https://adrianfumc.org/wp-content/uploads/2017/08/red-screen-1024x690.jpg",
+    "title": "Terapia para curar paciênte",
+    "description": "",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
-        "answer": 2,
+        "image": "http://4.bp.blogspot.com/-8Pi29N5LG9c/Vh8EC7YjAuI/AAAAAAAAAjU/nl-rUCtUNhs/s1600/139845681439.jpg",
+        "title": "Não se lembrava de ter havido um encerramento em seu interrogatório. Num certo período tudo ficara às escuras, depois a cela, ou o quarto, em que agora se encontrava fora gradualmente se materializando à sua volta. Estavaquase na horizontal e não podia se mexer. Tinha o corpo atado em todos ospontos essenciais. Até sua nuca estava presa. O’Brien olhava para ele comexpressão  grave  e  entristecida.  Seu  rosto,  visto  de  baixo,  parecia  rude  eabatido, com olheiras e rugas que iam do nariz ao queixo. Era mais velho do que Winston imaginara; devia ter uns quarenta e oito ou cinquenta anos. Debaixo  de  sua  mão  havia  um  mostrador  com  uma  alavanca  e  números ocupando sua circunferência",
+        "description": "",
+        "asnwer_correct_text": "",
+        "asnwer_wrong_text": "",
+        "answer": -1,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "..."
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
+        "image": "https://preview.redd.it/zt61jfm7xrr31.png?width=960&crop=smart&auto=webp&s=98fcd3de27e7b561f88f4982ed0222796affd695",
+        "title": "O’Brien  levantou  a  mão  esquerda  e  mostrou  seu  dorso  para  Winston,com o polegar escondido e os outros quatro dedos estendidos.",
+        "description": "“Quantos dedos tem aqui, Winston?”",
+        "asnwer_correct_text": "",
+        "asnwer_wrong_text": "",
+        "answer": -1,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+          "4",
+          "4"
+        ]
+      },
+      {
+        "image": "https://preview.redd.it/zt61jfm7xrr31.png?width=960&crop=smart&auto=webp&s=98fcd3de27e7b561f88f4982ed0222796affd695",
+        "description": "",
+        "title": "“E se o Partido disser que não são quatro, mas cinco, quantos dedos serão?”",
+        "asnwer_wrong_text": "...",
+        "asnwer_correct_text": "“Não, Winston, assim não.Você está mentindo. Continua achando quesão quatro.“",
+        "answer": 1,
+        "alternatives": [
+           "4",
+           "5"
+        ],
+        "need_hurt":true
+      },
+      {
+        "image": "https://preview.redd.it/zt61jfm7xrr31.png?width=960&crop=smart&auto=webp&s=98fcd3de27e7b561f88f4982ed0222796affd695",
+        "description": "“Quantos dedos, Winston?”",
+        "title": "A palavra foi concluída com um gemido de dor. O ponteiro do mostrador saltara para cinquenta e cinco. O suor recobrira todo o corpo de Winston. O ar que entrou em seus pulmões saiu sob a forma de grunhidos fundos, que nem trincando os dentes Winston conseguia sufocar. O’Brien observava-o com os quatro dedos ainda estendidos. Puxou a alavanca de volta. Dessa vez,a dor foi apenas levemente mitigada",
+        "asnwer_wrong_text": "...",
+        "asnwer_correct_text": "“Você está mentindo. Continua achando que são quatro.“",
+        "answer": 1,
+        "alternatives": [
+           "4",
+           "5"
+        ],
+        "need_hurt":true
+      },
+      {
+        "image": "https://preview.redd.it/zt61jfm7xrr31.png?width=960&crop=smart&auto=webp&s=98fcd3de27e7b561f88f4982ed0222796affd695",
+        "title": "O  ponteiro  provavelmente  tornara  a  subir,  porém  Winston  não  olhoupara  o  mostrador.  O  semblante  carregado,  severo,  e  os  quatro  dedos ocupavam todo o seu campo de visão. Tinha os dedos diante dos olhos, como colunas,  enormes,  desfocados  e  dando  a  impressão  de  vibrar,  mas inequivocamente quatro.",
+        "description": "“Quantos dedos, Winston?”",
+        "asnwer_wrong_text": "...",
+        "asnwer_correct_text": "“Você está mentindo. Continua achando que são quatro.“",
+        "answer": 1,
+        "alternatives": [
+           "4",
+           "5"
+        ],
+        "need_hurt":true
+      },
+      {
+        "image": "https://preview.redd.it/zt61jfm7xrr31.png?width=960&crop=smart&auto=webp&s=98fcd3de27e7b561f88f4982ed0222796affd695",
+        "title": "O  ponteiro  talvez  estivesse  em  oitenta  —  noventa.  Só  a  intervalos Winston  conseguia  se  lembrar  do  motivo  por  que  a  dor  lhe  estava  sendo infligida.  Atrás  das  pálpebras  obstinadamente  fechadas,  uma  floresta  de dedos  parecia  se  mover  numa  espécie  de  dança,  embaralhando-se  e desembaralhando-se,  desaparecendo  uns  atrás  dos  outros  e  reaparecendo outra vez. Winston tentava contá-los, não se lembrava por quê. Sabia apenas que  era  impossível  contá-los  e  que  de  alguma  forma  isso  se  devia  à misteriosa identidade entre cinco e quatro. A dor voltou a diminuir. Ao abriros olhos, verificou que continuava vendo a mesma coisa. Um sem fim de dedos, movendo-se como árvores, continuava a correr em ambas as direções, cruzando-se e descruzando-se. Tornou a fechar os olhos.",
+        "description": "“Quantos dedos, Winston?”",
+        "asnwer_wrong_text": "“Assim é melhor”, disse O’Brien",
+        "asnwer_correct_text": "“Assim é melhor”, disse O’Brien",
+        "answer": 1,
+        "alternatives": [
+           "“Não sei, não sei. Você vai me matar, se fizer isso de novo. Quatro, cinco,seis — com toda a sinceridade, não sei.”",
+           "“Não sei, não sei. Você vai me matar, se fizer isso de novo. Quatro, cinco,seis — com toda a sinceridade, não sei.”"
         ]
       }
     ],
     "external": [
-    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/",
+    "https://batman-quiz.elyssonmr.vercel.app/"
     ],
     "theme": {
       "colors": {
-        "primary": "#009688",
-        "primary_1": "#00695f",
-        "primary_2": "#33ab9fs",
-        "secondary": "#f50057",
+        "primary": "#ba0006",
+        "primary_1": "#7f0000",
+        "primary_2": "#7f0000",
+        "secondary": "#7f0000",
 
         "mainBg": "#181818",
         "contrastText": "#FFFFFF",
@@ -44,4 +98,4 @@
       },
       "borderRadius": "4px"
     }
-  }
+  }  

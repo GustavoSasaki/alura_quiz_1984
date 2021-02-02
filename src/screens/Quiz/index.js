@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 // eslint-disable-next-line import/no-named-as-default
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import Lottie from 'react-lottie';
 import QuizContainer from '../../components/QuizContainer';
 import QuizBackground from '../../components/QuizBackground';
@@ -8,17 +11,22 @@ import Widget from '../../components/Widget';
 import Button from '../../components/Button';
 import BackLinkArrow from '../../components/BackLinkArrow';
 import AlternativesForm from '../../components/AlternativesForm';
-import animationData from '../../Animation/loading-animation.json';
+import animationData from '../../Animation/syringe.json';
 
-const lottieOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
+const framerVariant = {
+  show: { opacity: 1, x: '0' },
+  hidden: { opacity: 0, x: '-100%' },
 };
 
 function LoadingWidget() {
   return (
-    <Widget>
+    <Widget
+      as={motion.div}
+      transition={{ delay: 0, duration: 1 }}
+      variants={framerVariant}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>Carregando...</Widget.Header>
 
       <Widget.Content>[Desafio do Loading]</Widget.Content>
@@ -29,10 +37,12 @@ function LoadingWidget() {
 function QuestionWidget({
   question,
   questionIndex,
-  totalQuestions,
   onSubmit,
   awnsers,
   setAwnsers,
+  correctText,
+  wrongText,
+  setScreenState,
 }) {
   const questionId = `question__${questionIndex}`;
   const [selectedAlt, SetSelectedAlt] = React.useState(undefined);
@@ -45,7 +55,7 @@ function QuestionWidget({
       <Widget.Header>
         <h3>
           <BackLinkArrow href="/" />
-          {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
+          {`Pergunta ${1} de ${1}`}
         </h3>
       </Widget.Header>
 
@@ -69,6 +79,7 @@ function QuestionWidget({
           {' '}
           {question.description}
           {' '}
+          {' '}
         </p>
 
         <AlternativesForm
@@ -81,7 +92,14 @@ function QuestionWidget({
               onSubmit();
               SetSelectedAlt(undefined);
               SetAwnserSubmited(false);
-            }, 3_000);
+
+              if (question.need_hurt) {
+                setScreenState(screenStates.HURT);
+                setTimeout(() => {
+                  setScreenState(screenStates.QUIZ);
+                }, 500);
+              }
+            }, 2_500);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
@@ -112,8 +130,8 @@ function QuestionWidget({
             Confirmar
           </Button>
 
-          {awnserSubmited && isCorrect && <p>Ok, vamos analizar sua resposta</p>}
-          {awnserSubmited && !isCorrect && <p>Ok, sua resposta é peculiar ...</p>}
+          {awnserSubmited && isCorrect && <p> {correctText}</p>}
+          {awnserSubmited && !isCorrect && <p>{wrongText}</p>}
 
         </AlternativesForm>
       </Widget.Content>
@@ -125,30 +143,71 @@ const screenStates = {
   QUIZ: 'QUIZ',
   LOADING: 'LOADING',
   RESULT: 'RESULT',
+  HURT: 'HURT',
 };
 
-function WidgetResults({
-  // eslint-disable-next-line react/prop-types
-  awnsers,
-}) {
+function WidgetResults() {
   return (
     <Widget>
       <Widget.Content>
-        <p> FIM POHA </p>
+        <h2>
+          “Sabe onde você está, Winston?”
+          <br />
+          <br />
+          “Não. Imagino que no Ministério do Amor.”
+          <br />
+          <br />
+          “Sabe há quanto tempo está aqui?”
+          <br />
+          <br />
+          “Não faço ideia. Dias, semanas, meses... Acho que alguns meses.”
+          <br />
+          <br />
+          “E por que acha que trazemos as pessoas para este lugar?”
+          <br />
+          <br />
+          “Para fazê-las confessar.”
+          <br />
+          <br />
+          “Para fazê-las confessar.”
+          <br />
+          <br />
+          “Para castigá-las.”“Não!”, exclamou O’Brien.
+          <br />
+          <br />
+          Sua voz se modificara extraordinariamente e seu  rosto  assumira  um  aspecto  a  um  só  tempo  ríspido  e  entusiasmado.
+          <br />
+          “Não! Não é apenas para obter sua confissão nem para castigar você. 
+          <br />
+          Será que preciso explicar por que o trouxemos para cá? Foi para curá-lo! Para fazerde você uma pessoa equilibrada! Será que é tão difícil assim você entender, Winston,  que  ninguém  sai  deste  lugar  sem  estar  curado?  
+          <br />
+          Não estamos preocupados com aqueles crimes idiotas que você cometeu. 
+          <br />
+          O Partido não se interessa  pelo  ato  em  si:  é  só  o  pensamento  que  nos  preocupa.  
+          <br />
+          Não  nos limitamos a destruir nossos inimigos; nós os transformamos. 
+          <br />
+        </h2>
       </Widget.Content>
     </Widget>
   );
 }
 
 // eslint-disable-next-line react/prop-types
-export default function PageQuiz({ externalQuestions, externalBg }) {
+export default function PageQuiz({ externalQuestions, externalBg, externalBg2 }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   // eslint-disable-next-line react/prop-types
   const totalQuestions = externalQuestions.length;
   const [currQuestionIndex, setCurrQuestionIndex] = React.useState(0);
   const question = externalQuestions[currQuestionIndex];
   const [awnsers, setAwnsers] = React.useState([]);
-  const backGround = externalBg;
+  const backGround = (screenState === screenStates.HURT) ? externalBg2 : externalBg;
+
+  const lottieOptions = {
+    loop: false,
+    autoplay: true,
+    animationData,
+  };
 
   function handleSubmitQuiz() {
     const nextQuestion = currQuestionIndex + 1;
@@ -162,11 +221,12 @@ export default function PageQuiz({ externalQuestions, externalBg }) {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 1 * 2000);
   }, []);
 
   return (
     <QuizBackground backgroundImage={backGround}>
+      {screenState !== screenStates.HURT && (
       <QuizContainer>
 
         {screenState === screenStates.QUIZ && (
@@ -177,9 +237,11 @@ export default function PageQuiz({ externalQuestions, externalBg }) {
             onSubmit={handleSubmitQuiz}
             awnsers={awnsers}
             setAwnsers={setAwnsers}
+            correctText={question.asnwer_correct_text}
+            wrongText={question.asnwer_wrong_text}
+            setScreenState={setScreenState}
           />
         )}
-
         {screenState === screenStates.LOADING && (
           <Widget>
             <Widget.Content>
@@ -188,9 +250,11 @@ export default function PageQuiz({ externalQuestions, externalBg }) {
           </Widget>
         )}
         {screenState === screenStates.LOADING && <LoadingWidget />}
-        {screenState === screenStates.RESULT && <WidgetResults awnsers={awnsers} />}
+        {screenState === screenStates.RESULT && <WidgetResults />}
       </QuizContainer>
+      )}
     </QuizBackground>
+
   );
 }
 

@@ -56,7 +56,7 @@ export default function Home() {
               />
 
               <Button type="submit" disabled={name.length === 0}>
-                {`Jogar ${name}`}
+                {`Participar ${name}`}
               </Button>
             </form>
           </Widget.Content>
@@ -71,7 +71,7 @@ export default function Home() {
         >
           <Widget.Content>
             <ul>
-              <h1> Outros Quizzes: </h1>
+              <h1> Outras Terapias: </h1>
               {db.external.map((link) => {
                 // eslint-disable-next-line no-unused-vars
                 const [_, author, quizName] = regex.exec(link);
